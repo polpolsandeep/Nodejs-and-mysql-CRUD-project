@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form action="/updatesearch">
+            <h3>SEARCH STUDENT</h3>
+            <hr>
+            <label for="phn"><b>PHONE NUMBER</b></label>
+            <input type="phone" placeholder="Type Phone Number to Searched" id="phone" required>
+            <button type="submit" class="registerbtn">SEARCH STUDENT</button>
+            <a href="./" style="color:black">BACK TO HOMEPAGE</a>
+            <br>
+            {{#if umesg}}
+            <h3>Data Updated!</h3>
+            {{/if}}
+
+            {{#if mesg2}}
+            <h3>Data Not Found!</h3>
+            {{/if}}
+
+        </form>
+    </div>
+    {{#if mesg1}}
+    <div class="container">
+        <form action="/updatestudent">
+        <h3>UPDATE STUDENT</h3>
+        <hr>
+        {{#data}}
+        <label><b>Student Name</b></label>
+        <input type="text" placeholder="Enter Name"name="name"value="{{username}}"id="name"required>
+
+        <label><b>Phone Number</b></label>
+        <input type="phone" placeholder="Enter Phone Number"name="phone"value="{{phoneno}}"id="phone"required readonly>
+
+        <label><b>eml-id</b></label>
+        <input type="email" placeholder="Enter Email Id"name="email"value="{{emailid}}"id="email"required readonly>
+
+        <div class="gender_g">
+            <strong>Gender</strong>
+            <input type="radio" name="gender" id="" value="Male">Male
+            <input type="radio" name="gender" id="" value="FeMale">FeMale
+        </div>
+        <button type="submit" class="registerbtn">UPDATE STUDENT</button>
+        {{/data}}
+        <a href="./" style="color:black">BACK TO HOMEPAGE</a>
+
+        </form>
+    </div>
+    {{/if}}
+</body>
+</html>
